@@ -1275,6 +1275,40 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   .pay-section-inner { grid-template-columns:1fr 1fr; gap:64px; }
 }
 
+
+/* ════════════════════ LARGE 1280px — 5 produits en ligne ════════════════════ */
+@media(min-width:1280px){
+  .products-grid{
+    grid-template-columns:repeat(5,1fr);
+    gap:18px;
+  }
+  .prod-img{aspect-ratio:3/4}
+}
+
+/* ════════════════════ MOBILE COMPACT ════════════════════ */
+@media(max-width:599px){
+  .products-grid{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  .prod-img{aspect-ratio:16/9}
+  .prod-img img{object-position:center top}
+}
+
+/* Centrer le 5e produit sur grille 3 colonnes */
+@media(min-width:960px) and (max-width:1279px){
+  .products-grid{grid-template-columns:repeat(3,1fr)}
+  .prod-card:last-child:nth-child(3n+2){
+    grid-column:2/3;
+  }
+  .prod-card:last-child:nth-child(3n+1){
+    grid-column:2/4;
+    max-width:340px;
+    justify-self:center;
+    width:100%;
+  }
+}
+
 </style>
 </head>
 <body>
