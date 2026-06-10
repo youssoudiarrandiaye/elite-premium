@@ -1309,6 +1309,45 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   }
 }
 
+
+/* ════════ MOBILE PRODUITS — optimise 99% mobile ════════ */
+@media(max-width:599px){
+  #produits{ padding:60px 0; }
+  .products-grid{ grid-template-columns:1fr; gap:14px; }
+
+  /* Image moins haute sur mobile */
+  .prod-img{ aspect-ratio:16/9; }
+  .prod-img img{ object-position:center 20%; }
+
+  /* Corps carte plus compact */
+  .prod-body{ padding:16px; gap:10px; }
+  .prod-name{ font-size:16px; }
+  .prod-desc{ font-size:12px; }
+
+  /* Features : max 3 visibles */
+  .prod-feats li{ font-size:12px; gap:7px; }
+
+  /* Prix et bouton */
+  .price-main{ font-size:24px; }
+  .price-period{ margin-bottom:12px; }
+
+  /* Bouton commander : grand, facile au pouce */
+  .btn-order{
+    padding: 15px;
+    font-size: 14px;
+    border-radius: .875rem;
+    min-height: 52px;
+  }
+
+  /* Badge android plus petit */
+  .android-badge{ font-size:9px; padding:3px 9px 3px 6px; }
+  .android-icon{ width:13px; height:13px; }
+  .android-pulse{ width:5px; height:5px; }
+
+  /* Hot pill repositionné */
+  .hot-pill{ font-size:8px; padding:2px 8px; top:10px; right:10px; }
+}
+
 </style>
 </head>
 <body>
@@ -1763,7 +1802,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
 
     <!-- CTA CapCut -->
     <div style="text-align:center;margin-top:52px">
-      <a href="https://knrsjxjw.mychariow.shop/prd_pqwdjo/checkout" target="_blank"
+      <a href="https://mmxdzxof.mychariow.shop/" target="_blank"
          class="btn-order" style="display:inline-flex;width:auto;padding:14px 36px;font-size:15px;background:linear-gradient(135deg,#8A2BE2,#A855F7)">
         Obtenir CapCut Pro — 2 450 F CFA
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7.5 3l4 4-4 4"/></svg>
@@ -2254,11 +2293,11 @@ var IMG = {
 // DATA
 // ══════════════════════════════════════
 var PRODUCTS = [
-  { name:"Claude Pro",    desc:"L'IA la plus avancee pour la redaction, l'analyse et la programmation.", price:"2 450", old:"10 000", save:"-76%", feats:["Conversations intelligentes","Aide a la reflexion","Resumes et analyses","Support multilingue"], hot:true,  android:true,  img:"claude_ia", checkout:"https://knrsjxjw.mychariow.shop/prd_ltgp0jsr/checkout", wpp:"Je veux commander Claude Pro 2450 FCFA"    },
-  { name:"CapCut Pro",    desc:"Liberez votre creativite comme un PRO. Sans filigrane, qualite 4K.",       price:"2 450", old:"8 000",  save:"-70%", feats:["Sans filigrane","Qualite HD / 4K","Effets et filtres Pro","Activation rapide"],           hot:false, android:true,  img:"capcut",    checkout:"https://knrsjxjw.mychariow.shop/prd_pqwdjo/checkout",    wpp:"Je veux commander CapCut Pro 2450 FCFA"    },
-  { name:"Grok Pro",      desc:"Debloquez tout le potentiel de Grok avec la version PRO.",                 price:"2 450", old:"10 000", save:"-76%", feats:["Conversations intelligentes","Reponses ultra rapides","IA avancee et fiable","Acces multilingue"],   hot:false, android:true,  img:"grok",      checkout:"https://knrsjxjw.mychariow.shop/prd_79wz986s/checkout",  wpp:"Je veux commander Grok Pro 2450 FCFA"      },
-  { name:"Filmora Pro",   desc:"Liberez votre creativite avec Filmora Montage. Professionnel et intuitif.",price:"2 450", old:"9 000",  save:"-73%", feats:["Montage facile et rapide","Effets et transitions","Exportation 4K","Stockage Cloud inclus"],  hot:false, android:true,  img:"filmora",   checkout:"https://knrsjxjw.mychariow.shop/prd_6f5zve9h/checkout",  wpp:"Je veux commander Filmora Pro 2450 FCFA"   },
-  { name:"Shopify a Vie", desc:"Creez. Lancez. Gagnez. Votre boutique en ligne, votre liberte totale.",   price:"4 000", old:"15 000", save:"-73%", feats:["Formation video A a Z","2 themes Shopify Premium","Accompagnement complet","Avec droit de revente"],hot:false, android:false, img:"shopify",   checkout:"https://knrsjxjw.mychariow.shop/prd_r47sqc/checkout",    wpp:"Je veux commander Shopify a Vie 4000 FCFA" },
+  { name:"Claude Pro",    desc:"L'IA la plus avancee pour la redaction, l'analyse et la programmation.", price:"2 450", old:"10 000", save:"-76%", feats:["Conversations intelligentes","Aide a la reflexion","Resumes et analyses","Support multilingue"], hot:true,  android:true,  img:"claude_ia", checkout:"https://mmxdzxof.mychariow.shop/", wpp:"Je veux commander Claude Pro 2450 FCFA"    },
+  { name:"CapCut Pro",    desc:"Liberez votre creativite comme un PRO. Sans filigrane, qualite 4K.",       price:"2 450", old:"8 000",  save:"-70%", feats:["Sans filigrane","Qualite HD / 4K","Effets et filtres Pro","Activation rapide"],           hot:false, android:true,  img:"capcut",    checkout:"https://mmxdzxof.mychariow.shop/",    wpp:"Je veux commander CapCut Pro 2450 FCFA"    },
+  { name:"Grok Pro",      desc:"Debloquez tout le potentiel de Grok avec la version PRO.",                 price:"2 450", old:"10 000", save:"-76%", feats:["Conversations intelligentes","Reponses ultra rapides","IA avancee et fiable","Acces multilingue"],   hot:false, android:true,  img:"grok",      checkout:"https://mmxdzxof.mychariow.shop/",  wpp:"Je veux commander Grok Pro 2450 FCFA"      },
+  { name:"Filmora Pro",   desc:"Liberez votre creativite avec Filmora Montage. Professionnel et intuitif.",price:"2 450", old:"9 000",  save:"-73%", feats:["Montage facile et rapide","Effets et transitions","Exportation 4K","Stockage Cloud inclus"],  hot:false, android:true,  img:"filmora",   checkout:"https://mmxdzxof.mychariow.shop/",  wpp:"Je veux commander Filmora Pro 2450 FCFA"   },
+  { name:"Shopify a Vie", desc:"Creez. Lancez. Gagnez. Votre boutique en ligne, votre liberte totale.",   price:"4 000", old:"15 000", save:"-73%", feats:["Formation video A a Z","2 themes Shopify Premium","Accompagnement complet","Avec droit de revente"],hot:false, android:false, img:"shopify",   checkout:"https://mmxdzxof.mychariow.shop/",    wpp:"Je veux commander Shopify a Vie 4000 FCFA" },
 ];
 
 var AVANTAGES = [
