@@ -1295,18 +1295,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   .prod-img img{object-position:center top}
 }
 
-/* Centrer le 5e produit sur grille 3 colonnes */
-@media(min-width:960px) and (max-width:1279px){
-  .products-grid{grid-template-columns:repeat(3,1fr)}
-  .prod-card:last-child:nth-child(3n+2){
-    grid-column:2/3;
-  }
-  .prod-card:last-child:nth-child(3n+1){
-    grid-column:2/4;
-    max-width:340px;
-    justify-self:center;
-    width:100%;
-  }
+
 }
 
 
@@ -1348,6 +1337,70 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   .hot-pill{ font-size:8px; padding:2px 8px; top:10px; right:10px; }
 }
 
+
+/* ════════ PRODUITS — grilles corrigées ════════ */
+
+/* Mobile : 1 colonne */
+@media(max-width:599px){
+  .products-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  .prod-img{aspect-ratio:16/9}
+  .prod-img img{object-position:center 20%}
+  .prod-body{padding:16px;gap:10px}
+  .prod-name{font-size:16px}
+  .prod-desc{font-size:12px}
+  .price-main{font-size:24px}
+  .price-period{margin-bottom:12px}
+  .btn-order{padding:15px;font-size:14px;min-height:52px}
+  .android-badge{font-size:9px;padding:3px 9px 3px 6px}
+  .android-icon{width:13px;height:13px}
+  .android-pulse{width:5px;height:5px}
+  .hot-pill{font-size:8px;padding:2px 8px;top:10px;right:10px}
+}
+
+/* Tablet : 2 colonnes */
+@media(min-width:600px) and (max-width:959px){
+  .products-grid{
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  /* 5e produit centré */
+  .prod-card:nth-child(5):last-child{
+    grid-column: 1 / -1;
+    max-width: 340px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+/* Laptop 960-1279px : 3 colonnes, 5e centré */
+@media(min-width:960px) and (max-width:1279px){
+  .products-grid{
+    grid-template-columns: repeat(3, 1fr);
+    gap:20px;
+  }
+  /* 4e et 5e produits : les mettre sur une demi-rangée centrée */
+  .prod-card:nth-child(4),
+  .prod-card:nth-child(5){
+    /* Ils tombent naturellement en ligne 2 */
+  }
+  /* 5e seul sur sa ligne = centrer via auto columns */
+  .prod-card:last-child:nth-child(5){
+    grid-column-start: 2;
+  }
+}
+
+/* Large 1280px+ : 5 colonnes, tout en une ligne */
+@media(min-width:1280px){
+  .products-grid{
+    grid-template-columns: repeat(5, 1fr);
+    gap:16px;
+  }
+  .prod-img{aspect-ratio:4/3}
+}
+
 </style>
 </head>
 <body>
@@ -1383,6 +1436,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
 </div>
 
 <!-- HERO -->
+
+
 <section id="hero">
   <div class="hero-glow"></div>
   <div class="hero-grid"></div>
@@ -1433,32 +1488,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   </div>
 </section>
 
-<!-- STATS BAND -->
-<div class="stats-band">
-  <div class="container">
-    <div class="stats-row">
-      <div>
-        <div class="stat-val"><span id="c1">0</span>+</div>
-        <div class="stat-lbl">Clients actifs</div>
-      </div>
-      <div>
-        <div class="stat-val"><span id="c2">0</span></div>
-        <div class="stat-lbl">Abonnements</div>
-      </div>
-      <div>
-        <div class="stat-val"><span id="c3">0</span>%</div>
-        <div class="stat-lbl">Satisfaction</div>
-      </div>
-      <div>
-        <div class="stat-val"><span id="c4">0</span>min</div>
-        <div class="stat-lbl">Livraison moy.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- OPERATEURS DE PAIEMENT -->
 <section id="partenaires">
   <div class="container">
     <div class="pay-section-inner">
@@ -1527,7 +1556,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   </div>
 </section>
 
-<!-- PRODUITS -->
 <section id="produits">
   <div class="container">
     <div class="section-head reveal">
@@ -1539,76 +1567,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   </div>
 </section>
 
-<!-- POUR QUI -->
-<section id="pour-qui">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Notre client ideal</span>
-      <h2>Ce service est fait <span class="accent">pour vous</span></h2>
-    </div>
-    <div class="pour-qui-grid">
-      <div class="pq-card pq-yes reveal">
-        <div class="pq-title">
-          <div class="pq-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-          </div>
-          C'est pour vous si
-        </div>
-        <ul class="pq-list">
-          <li><span class="pq-dot"></span>Vous voulez acceder aux meilleurs outils IA sans payer le prix fort</li>
-          <li><span class="pq-dot"></span>Vous etes freelance, etudiant, entrepreneur ou createur de contenu</li>
-          <li><span class="pq-dot"></span>Vous voulez booster votre productivite et votre creativite</li>
-          <li><span class="pq-dot"></span>Vous cherchez un service rapide, serieux et fiable en Afrique</li>
-        </ul>
-      </div>
-      <div class="pq-card pq-no reveal">
-        <div class="pq-title">
-          <div class="pq-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-          </div>
-          Ce n'est pas pour vous si
-        </div>
-        <ul class="pq-list">
-          <li><span class="pq-dot"></span>Vous cherchez un acces partiellement fonctionnel ou approximatif</li>
-          <li><span class="pq-dot"></span>Vous n'avez pas besoin d'outils premium dans votre quotidien</li>
-          <li><span class="pq-dot"></span>Vous voulez tester sans vous engager serieusement</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AVANTAGES -->
-<section id="avantages">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Pourquoi nous choisir</span>
-      <h2>Une experience <span class="accent">sans compromis</span></h2>
-      <p>Chaque detail pense pour vous offrir un service de niveau international.</p>
-    </div>
-    <div class="av-grid" id="avGrid"></div>
-  </div>
-</section>
-
-<!-- STEPS -->
-<section id="comment">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Processus simple</span>
-      <h2>Commander en <span class="accent">4 etapes</span></h2>
-      <p>Un processus concu pour etre rapide, clair et sans friction.</p>
-    </div>
-    <div class="steps-grid">
-      <div class="step"><div class="step-num">1</div><h3>Choisissez</h3><p>Parcourez les abonnements et selectionnez celui qui correspond a vos besoins.</p></div>
-      <div class="step"><div class="step-num">2</div><h3>Payez</h3><p>Reglez par Orange Money, Wave, Free Money ou carte bancaire. Paiement securise.</p></div>
-      <div class="step"><div class="step-num">3</div><h3>Recevez</h3><p>Vos identifiants arrivent directement sur WhatsApp en moins de 10 minutes.</p></div>
-      <div class="step"><div class="step-num">4</div><h3>Profitez</h3><p>Connectez-vous et beneficiez immediatement de toutes les fonctionnalites premium.</p></div>
-    </div>
-  </div>
-</section>
-
-
-<!-- FEATURES -->
 <section id="features">
   <div class="container">
 
@@ -1733,8 +1691,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   </div>
 </section>
 
-
-<!-- FEATURES CAPCUT -->
 <section id="features-capcut">
   <div class="container">
 
@@ -1813,7 +1769,104 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   </div>
 </section>
 
-<!-- PAIEMENTS -->
+<section id="temoignages">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Avis clients</span>
+      <h2>Ce que disent <span class="accent">nos clients</span></h2>
+    </div>
+    <div class="rating-row reveal">
+      <div class="rating-num">4.9</div>
+      <div>
+        <div class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="rating-lbl">Base sur 500+ avis verifies</div>
+      </div>
+    </div>
+  </div>
+  <div class="testi-wrap">
+    <div class="testi-track" id="testiTrack"></div>
+  </div>
+</section>
+
+<section id="fb-temoignages">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="fb-head-badge">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Avis Facebook verifies
+      </div>
+      <h2>Captures <span class="accent">de vrais clients</span></h2>
+      <p>Ce que partagent nos clients directement sur Facebook.</p>
+    </div>
+    <div class="fb-grid" id="fbGrid"></div>
+  </div>
+</section>
+
+<section id="pour-qui">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Notre client ideal</span>
+      <h2>Ce service est fait <span class="accent">pour vous</span></h2>
+    </div>
+    <div class="pour-qui-grid">
+      <div class="pq-card pq-yes reveal">
+        <div class="pq-title">
+          <div class="pq-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          C'est pour vous si
+        </div>
+        <ul class="pq-list">
+          <li><span class="pq-dot"></span>Vous voulez acceder aux meilleurs outils IA sans payer le prix fort</li>
+          <li><span class="pq-dot"></span>Vous etes freelance, etudiant, entrepreneur ou createur de contenu</li>
+          <li><span class="pq-dot"></span>Vous voulez booster votre productivite et votre creativite</li>
+          <li><span class="pq-dot"></span>Vous cherchez un service rapide, serieux et fiable en Afrique</li>
+        </ul>
+      </div>
+      <div class="pq-card pq-no reveal">
+        <div class="pq-title">
+          <div class="pq-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </div>
+          Ce n'est pas pour vous si
+        </div>
+        <ul class="pq-list">
+          <li><span class="pq-dot"></span>Vous cherchez un acces partiellement fonctionnel ou approximatif</li>
+          <li><span class="pq-dot"></span>Vous n'avez pas besoin d'outils premium dans votre quotidien</li>
+          <li><span class="pq-dot"></span>Vous voulez tester sans vous engager serieusement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="avantages">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Pourquoi nous choisir</span>
+      <h2>Une experience <span class="accent">sans compromis</span></h2>
+      <p>Chaque detail pense pour vous offrir un service de niveau international.</p>
+    </div>
+    <div class="av-grid" id="avGrid"></div>
+  </div>
+</section>
+
+<section id="comment">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Processus simple</span>
+      <h2>Commander en <span class="accent">4 etapes</span></h2>
+      <p>Un processus concu pour etre rapide, clair et sans friction.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">1</div><h3>Choisissez</h3><p>Parcourez les abonnements et selectionnez celui qui correspond a vos besoins.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Payez</h3><p>Reglez par Orange Money, Wave, Free Money ou carte bancaire. Paiement securise.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Recevez</h3><p>Vos identifiants arrivent directement sur WhatsApp en moins de 10 minutes.</p></div>
+      <div class="step"><div class="step-num">4</div><h3>Profitez</h3><p>Connectez-vous et beneficiez immediatement de toutes les fonctionnalites premium.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="paiements">
   <div class="container">
     <div class="section-head reveal">
@@ -2145,42 +2198,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   </div>
 </section>
 
-<!-- TEMOIGNAGES -->
-<section id="temoignages">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Avis clients</span>
-      <h2>Ce que disent <span class="accent">nos clients</span></h2>
-    </div>
-    <div class="rating-row reveal">
-      <div class="rating-num">4.9</div>
-      <div>
-        <div class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="rating-lbl">Base sur 500+ avis verifies</div>
-      </div>
-    </div>
-  </div>
-  <div class="testi-wrap">
-    <div class="testi-track" id="testiTrack"></div>
-  </div>
-</section>
-
-<!-- FB TEMOIGNAGES -->
-<section id="fb-temoignages">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="fb-head-badge">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        Avis Facebook verifies
-      </div>
-      <h2>Captures <span class="accent">de vrais clients</span></h2>
-      <p>Ce que partagent nos clients directement sur Facebook.</p>
-    </div>
-    <div class="fb-grid" id="fbGrid"></div>
-  </div>
-</section>
-
-<!-- FAQ -->
 <section id="faq">
   <div class="container">
     <div class="section-head reveal">
@@ -2191,7 +2208,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:56px 0 2
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <div class="cta-block reveal">
